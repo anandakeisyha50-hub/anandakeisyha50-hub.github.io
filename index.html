@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ndsyha skincare — Gen Z Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="topbar">
+    Gratis ongkir > Rp150.000 • Diskon pelajar 🎒
+  </div>
+  <header class="nav">
+    <div class="container nav__inner">
+      <a class="brand" href="#">
+        <img src="assets/logo.svg" alt="Logo ndsyha skincare" width="36" height="36">
+        <span>ndsyha skincare</span>
+      </a>
+      <div class="nav__search">
+        <input id="searchInput" type="search" placeholder="Cari toner, serum, sunscreen..." aria-label="Cari produk">
+      </div>
+      <div class="nav__actions">
+        <button id="themeBtn" class="icon-btn" title="Ganti tema">🌓</button>
+        <button id="cartBtn" class="icon-btn" title="Keranjang">🛒<span id="cartCount" class="cart-count">0</span></button>
+      </div>
+    </div>
+  </header>
+
+  <section class="slider" id="slider">
+    <div class="slides">
+      <div class="slide"><img src="assets/slide1.svg" alt="Glow Up, Gen Z!"></div>
+      <div class="slide"><img src="assets/slide2.svg" alt="Kulit Sehat, Mood Naik"></div>
+      <div class="slide"><img src="assets/slide3.svg" alt="Promo Minggu Ini"></div>
+    </div>
+    <div class="slider__dots" id="sliderDots"></div>
+    <button class="slider__arrow left" id="prevSlide" aria-label="Sebelumnya">‹</button>
+    <button class="slider__arrow right" id="nextSlide" aria-label="Berikutnya">›</button>
+  </section>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero__text">
+        <h1>Skincare remaja paling <span class="highlight">kekinian</span>.</h1>
+        <p>Formula ringan & efektif untuk Gen Z: no ribet, no drama. Cocok untuk kulit remaja & pemula.</p>
+        <div class="hero__cta">
+          <button id="shopNow" class="btn">Belanja Sekarang</button>
+          <button id="seeBestseller" class="btn outline">Best Seller</button>
+        </div>
+      </div>
+      <div class="hero__media parallax">
+        <img src="assets/prod1.svg" alt="Serum ndsyha" class="floaty">
+        <img src="assets/prod2.svg" alt="Toner ndsyha" class="floaty delay">
+      </div>
+    </section>
+
+    <section class="features" id="features">
+      <div class="feature-card">🐇 Cruelty‑free</div>
+      <div class="feature-card">🌿 Non‑comedogenic</div>
+      <div class="feature-card">🧪 Dermatology‑tested</div>
+      <div class="feature-card">☀️ Wajib Sunscreen</div>
+    </section>
+
+    <section class="filters">
+      <div class="filters__row">
+        <div class="chips" id="catChips"></div>
+        <div class="chips" id="skinChips"></div>
+        <div class="price">
+          <label>Harga ≤ Rp <span id="priceLabel">0</span></label>
+          <input type="range" id="priceRange" min="30000" max="300000" step="10000">
+        </div>
+        <select id="sortSelect">
+          <option value="popular">Terpopuler</option>
+          <option value="price-asc">Harga: Rendah → Tinggi</option>
+          <option value="price-desc">Harga: Tinggi → Rendah</option>
+          <option value="rating">Rating Tertinggi</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="grid" id="productGrid"></section>
+
+    <section class="reviews">
+      <h2>Apa kata mereka</h2>
+      <div class="marquee" id="marquee">
+        <div class="marquee__track">
+          <div class="review">“Pertama kali coba & langsung cocok! 🫶” — Lina</div>
+          <div class="review">“Sunscreennya ga lengket, enak dipakai.” — Dika</div>
+          <div class="review">“Harga ramah, hasil nyata.” — Rani</div>
+          <div class="review">“Packaging gemes, kualitas mantap!” — Fajar</div>
+          <div class="review">“CS ramah, pengiriman cepat.” — Anya</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="drawer" id="cartDrawer" aria-hidden="true">
+    <div class="drawer__panel">
+      <div class="drawer__header">
+        <h3>Keranjang</h3>
+        <button id="closeCart" class="icon-btn">✕</button>
+      </div>
+      <div id="cartItems" class="drawer__body"></div>
+      <div class="drawer__footer">
+        <div class="subtotal">Total: <strong id="cartTotal">Rp0</strong></div>
+        <button class="btn" id="checkoutBtn">Checkout</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="checkoutModal" aria-hidden="true">
+    <div class="modal__panel">
+      <div class="modal__header">
+        <h3>Checkout</h3>
+        <button id="closeCheckout" class="icon-btn">✕</button>
+      </div>
+      <form id="checkoutForm" class="form">
+        <div class="form__row">
+          <label>Nama Lengkap</label>
+          <input required name="name" placeholder="Nama kamu">
+        </div>
+        <div class="form__row">
+          <label>Alamat</label>
+          <textarea required name="address" placeholder="Alamat lengkap"></textarea>
+        </div>
+        <div class="form__row two">
+          <div>
+            <label>No. HP</label>
+            <input required name="phone" placeholder="08xxxx">
+          </div>
+          <div>
+            <label>Metode Pembayaran</label>
+            <select name="payment" required>
+              <option value="cod">COD</option>
+              <option value="transfer">Transfer</option>
+              <option value="ewallet">E‑Wallet</option>
+            </select>
+          </div>
+        </div>
+        <button class="btn wide" type="submit">Buat Pesanan</button>
+      </form>
+      <div id="orderResult" class="order-result" hidden></div>
+    </div>
+  </div>
+
+  <button class="chatfab" id="chatFab" title="Butuh bantuan?">💬</button>
+
+  <div class="toast" id="toast">Ditambahkan ke keranjang</div>
+
+  <footer class="footer">
+    © <span id="year"></span> ndsyha skincare • Dibuat dengan ❤ untuk Gen Z
+
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

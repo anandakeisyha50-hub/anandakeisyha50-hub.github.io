@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 540">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#F9F4EF"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="540" fill="url(#bg)"/>
+  <g opacity=".12" fill="#7A4B33">
+    <circle cx="1140" cy="120" r="180"/>
+    <circle cx="40" cy="480" r="140"/>
+    <circle cx="380" cy="120" r="100"/>
+  </g>
+  <g transform="translate(120,160)">
+    <rect x="740" y="-40" width="340" height="340" rx="40" fill="#7A4B33" opacity=".08"/>
+    <text x="0" y="0" font-family="Inter, Arial" font-size="56" fill="#2A1E1A" font-weight="800">Glow Up, Gen Z!</text>
+    <text x="0" y="72" font-family="Inter, Arial" font-size="24" fill="#6A5B54">Skincare kece buat remaja aktif – ringan dan efektif.</text>
+    <g transform="translate(0,120)">
+      <rect width="200" height="56" rx="16" fill="#7A4B33"/>
+      <text x="24" y="38" font-family="Inter, Arial" font-size="20" fill="#fff">Belanja Sekarang</text>
+    </g>
+  </g>
+</svg>
